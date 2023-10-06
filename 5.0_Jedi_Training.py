@@ -2,25 +2,34 @@
 
 '''
  1. Make the following program work. LIST THE 3 MISTAKES (5pts)
-   '''  
-     print("This program takes three integers and returns the sum.")
-     total = 0
-     for i in range(3):
-         x = input("Enter a number: ")
-         total+=i
-     print("The total is:", x)
-
-#1
-#2
-#3
+'''
+'''
+print("This program takes three integers and returns the sum.")
+total = 0
+for i in range(3):
+    x = int(input("Enter a number: "))
+    total += x
+print("The total is: " + str(total))
+'''
+#1 added + in the print before the total, replacing the ,
+#2 replaced i with x in the total += x line
+#3 added spaces in the total += i line
+#4 replaced the x in the final print line with total
+#5 added int before the input
+#6 added str before printing the total
 
 
 '''
   2. Write a Python program that will use a FOR loop to print the even
      numbers from 2 to 100, inclusive. (5pts)
 '''
-
-
+'''
+x = 0
+for i in range(50):
+    i += 1
+    x += 2
+    print(x)
+'''
 
 
 
@@ -29,15 +38,20 @@
      10 down to, and including, 0. Then print the words Blast off! Remember, use
      a WHILE loop, don't use a FOR loop. (5pts)
 '''
-
-
-
+'''
+x = 10
+while x >= 0:
+    print(x)
+    x -= 1
+print("Blast off!")
+'''
 
 
 
 '''
   4. Write a program that prints a random integer from 1 to 10 (inclusive). (5pts)
 '''
+import random
 
 
 
