@@ -137,7 +137,7 @@ playing = 1
 print("\033[1;38;49m Enter 4 at any draw to quit the program")
 while playing == 1:
     draw = random.randint(1, 3)
-    playerdraw = int(input("\033[1;38;49m Pick your draw!\nRock = 1\nPaper = 2\n Scissors = 3\n"))
+    playerdraw = int(input("\033[1;38;49m Pick your draw!\nRock = 1\nPaper = 2\nScissors = 3\n"))
     if playerdraw == 4:
         playing -= 1
     elif playerdraw == (draw - 2) or playerdraw == (draw + 1):
@@ -152,15 +152,15 @@ while playing == 1:
     if playerdraw == 1:
         print("\033[1;38;49m You drew Rock")
     elif playerdraw == 2:
-        print("You drew Paper")
+        print("\033[1;38;49m You drew Paper")
     elif playerdraw == 3:
-        print("You drew Scissors")
+        print("\033[1;38;49m You drew Scissors")
     if draw == 1:
         print("\033[1;38;49m They drew Rock")
     elif draw == 2:
-        print("They drew Paper")
+        print("\033[1;38;49m They drew Paper")
     elif draw == 3:
-        print("They drew Scissors")
+        print("\033[1;38;49m They drew Scissors")
 
 print("\033[1;32;49m Your wins: " + str(wins))
 print("\033[1;31;49m Your losses: " + str(losses))
