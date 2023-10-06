@@ -52,8 +52,11 @@ print("Blast off!")
   4. Write a program that prints a random integer from 1 to 10 (inclusive). (5pts)
 '''
 import random
-
-
+# leaving import random out of comment just in case
+'''
+x = random.randint(1, 10)
+print(x)
+'''
 
 
 
@@ -68,8 +71,24 @@ import random
      if statements.
       
 '''
-
-
+'''
+positive = 0
+negative = 0
+zero = 0
+total = 0
+for i in range(7):
+    i += 1
+    x = int(input("Give me a number: "))
+    total += x
+    if x >= 1:
+        positive += 1
+    elif x <= -1:
+        negative += 1
+    else:
+        zero += 1
+print("Your total is: " + str(total) + "\nNumber of positives: " + str(positive) + "\nNumber of negatives: "
+      + str(negative) + "\nNumber of zeros: " + str(zero))
+'''
 
 
 
@@ -82,9 +101,20 @@ import random
 3.) Add a loop so that the program does this 50 times.
 4.) Create a running total for the number of heads and the number of tails and print the total at the end.
 '''
-
-
-
+'''
+heads = 0
+tails = 0
+for i in range(50):
+    i += 1
+    coin = random.randint(0, 1)
+    if coin == 0:
+        heads += 1
+        print("Heads!")
+    else:
+        tails += 1
+        print("Tails!")
+print("Number of heads: " + str(heads) + "\nNumber of tails: " + str(tails))
+'''
 
 
 '''
@@ -100,8 +130,42 @@ Each round, tell me what the computer chose, what I chose and also if I won, los
 When the user quits, print an end game message and their win/loss/tie record
 
 '''
+wins = 0
+losses = 0
+draws = 0
+playing = 1
+print("\033[1;38;49m Enter 4 at any draw to quit the program")
+while playing == 1:
+    draw = random.randint(1, 3)
+    playerdraw = int(input("\033[1;38;49m Pick your draw!\nRock = 1\nPaper = 2\n Scissors = 3\n"))
+    if playerdraw == 4:
+        playing -= 1
+    elif playerdraw == (draw - 2) or playerdraw == (draw + 1):
+        wins += 1
+        print("\033[1;32;49m You Win!")
+    elif playerdraw == (draw - 1) or playerdraw == (draw + 2):
+        losses += 1
+        print("\033[1;31;49m You Lose!")
+    else:
+        draws += 1
+        print("\033[1;38;49m Draw!")
+    if playerdraw == 1:
+        print("\033[1;38;49m You drew Rock")
+    elif playerdraw == 2:
+        print("You drew Paper")
+    elif playerdraw == 3:
+        print("You drew Scissors")
+    if draw == 1:
+        print("\033[1;38;49m They drew Rock")
+    elif draw == 2:
+        print("They drew Paper")
+    elif draw == 3:
+        print("They drew Scissors")
 
-
+print("\033[1;32;49m Your wins: " + str(wins))
+print("\033[1;31;49m Your losses: " + str(losses))
+print("\033[1;38;49m Your draws: " + str(draws))
+print("\033[1;32;49m Thanks for playing!")
 
 
 
