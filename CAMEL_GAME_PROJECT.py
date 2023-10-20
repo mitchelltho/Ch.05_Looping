@@ -14,7 +14,7 @@ done = bool(False)
 print()
 
 while done == bool(False):
-    nativedistance = nativedistance - milestraveled
+
     print("A. Drink from your canteen.")
     print("B. Ahead moderate speed.")
     print("C. Ahead full speed.")
@@ -42,6 +42,7 @@ while done == bool(False):
         print("Miles Traveled: " + str(milestraveled))
         print("Drinks in canteen: " + str(canteen))
         print("The Natives Are " + str(abs(nativedistance)) + " Miles Behind You")
+        print("Camel Tiredness " + str(cameltiredness))
     else:
         continue
 
