@@ -5,6 +5,7 @@ The pseudo-code for how to code this game is in Chapter 5 of the Python Jedi boo
 
 '''
 import random
+choiceBpositiveeffect = 0
 choiceBnegativeeffect = 0
 milestraveled = 0
 thirst = 0
@@ -87,7 +88,7 @@ while done == bool(False):# Main game loop, handles whether game is over or not
                         print("The Mystery Merchant Watches You As You Approach, And As You Come Close \n"
                         "He Pulls A Lever, Revealing A Store Of Useful Items")
                         print("A. Teleport To Either An Oasis Or Inbetween -10 And +15 Miles")
-                        print("B. An Enchantment For Your Camel, Making It Never Tire Out For At least 5 Moves \n"
+                        print("B. An Enchantment For Your Camel, Making It Lose Less Energy \n"
                               "Or Making It Slightly Slower")
                         print("C. A Mysterious Cloak With Unknown Properties")
                         print("Q. Leave")
@@ -110,7 +111,7 @@ while done == bool(False):# Main game loop, handles whether game is over or not
                         elif userchoice == "B":
                             choiceB = random.randint(0,3)
                             if choiceB == 1 or 2:
-                                cameltiredness = -15
+                                choiceBpositiveeffect = 1
                                 print("Your Camel Becomes Stronger")
                             if choiceB == 3:
                                 choiceBnegativeeffect = random.randint(0,3)
@@ -154,7 +155,7 @@ while done == bool(False):# Main game loop, handles whether game is over or not
                         print("The Mystery Merchant Watches You As You Approach, And As You Come Close \n"
                               "He Pulls A Lever, Revealing A Store Of Useful Items")
                         print("A. Teleport To Either An Oasis Or Inbetween -10 And +15 Miles")
-                        print("B. An Enchantment For Your Camel, Making It Never Tire Out For At least 5 Moves \n"
+                        print("B. An Enchantment For Your Camel, Making It Lose Less Energy  \n"
                               "Or Making It Slightly Slower")
                         print("C. A Mysterious Cloak With Unknown Properties")
                         print("Q. Leave")
@@ -177,7 +178,7 @@ while done == bool(False):# Main game loop, handles whether game is over or not
                         elif userchoice == "B":
                             choiceB = random.randint(0, 3)
                             if choiceB == 1 or 2:
-                                cameltiredness = -15
+                                choiceBpositiveeffect = 1
                                 print("Your Camel Becomes Stronger")
                             if choiceB == 3:
                                 choiceBnegativeeffect = random.randint(0, 3)
@@ -200,7 +201,7 @@ while done == bool(False):# Main game loop, handles whether game is over or not
             milestraveled += random.randint(10,21) - choiceBnegativeeffect
             print("You have traveled " + str(milestraveled) + " Miles")
             thirst += 1
-            cameltiredness += random.randint(1,4)
+            cameltiredness += random.randint(1,4) - choiceBpositiveeffect
             nativetraveled += random.randint(7,15)
         elif userchoice == "D":# Stop for the night
             cameltiredness = 0
