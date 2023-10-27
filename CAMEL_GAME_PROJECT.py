@@ -5,6 +5,7 @@ The pseudo-code for how to code this game is in Chapter 5 of the Python Jedi boo
 
 '''
 import random
+choiceBnegativeeffect = 0
 milestraveled = 0
 thirst = 0
 cameltiredness = 0
@@ -196,7 +197,7 @@ while done == bool(False):# Main game loop, handles whether game is over or not
                     nativegain = random.randint(0, 5)
                     nativetraveled += nativegain
                     print("\033[1;31;49mBut The Natives Got " + nativegain + "Closer")
-            milestraveled += random.randint(10,21)
+            milestraveled += random.randint(10,21) - choiceBnegativeeffect
             print("You have traveled " + str(milestraveled) + " Miles")
             thirst += 1
             cameltiredness += random.randint(1,4)
