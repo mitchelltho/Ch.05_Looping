@@ -25,7 +25,7 @@ while done == bool(False):# Main game loop, handles whether game is over or not
         print("\033[1;32;49mYou Win!")
         done = True
         break
-    if milestraveled >= 300 and thirst == 6 or cameltiredness > 8:
+    if milestraveled >= 300 and thirst == 6 or milestraveled >= 300 and cameltiredness > 8:
         print("\033[1;35;49mYou Made It, But Died In Town")
         break
     if milestraveled >= 300 and mysterycloak == True:
@@ -42,11 +42,13 @@ while done == bool(False):# Main game loop, handles whether game is over or not
     elif thirst == 6:
         print("\033[1;31;49mYou Have Died Of Thirst!")
         done = True
-    if cameltiredness > 5:
-        print("\033[1;33;49mYour Camel Is Tired")
-    elif cameltiredness > 8 and done == False:
+        break
+    if cameltiredness > 8 and done == False:
         print("\033[1;31;49mYour Camel Is Dead!")
         done = True
+        break
+    if cameltiredness > 5:
+        print("\033[1;33;49mYour Camel Is Tired")
     if nativedistance >= 0:
         print("\033[1;31;49mThe Natives Caught You!")
         done = True
@@ -103,11 +105,11 @@ while done == bool(False):# Main game loop, handles whether game is over or not
                             elif choiceA == 2:
                                 choiceAback = random.randint(-11,-1)
                                 milestraveled += choiceAback
-                                print("You Were Teleported " +abs(choiceAback) + " Miles Back")
+                                print("You Were Teleported " + abs(choiceAback) + " Miles Back")
                             elif choiceA == 3:
                                 choiceAforward = random.randint(0,15)
                                 milestraveled += choiceAforward
-                                print("You Were Teleported " +choiceAforward + " Miles Forward")
+                                print("You Were Teleported " + str(choiceAforward) + " Miles Forward")
                         elif userchoice == "B":
                             choiceB = random.randint(0,3)
                             if choiceB == 1 or 2:
@@ -130,7 +132,7 @@ while done == bool(False):# Main game loop, handles whether game is over or not
                 if nativechance == 1:
                     nativegain = random.randint(0,5)
                     nativetraveled += nativegain
-                    print("\033[1;31;49mBut The Natives Got " + nativegain + " Closer")
+                    print("\033[1;31;49mBut The Natives Got " + nativegain + " Miles Closer")
             milestraveled += random.randint(5,13) - choiceBnegativeeffect
             print("You have traveled " + str(milestraveled) + " Miles")
             thirst += 1
@@ -170,11 +172,11 @@ while done == bool(False):# Main game loop, handles whether game is over or not
                             elif choiceA == 2:
                                 choiceAback = random.randint(-11, -1)
                                 milestraveled += choiceAback
-                                print("You Were Teleported " + abs(choiceAback) + " Miles Back")
+                                print("You Were Teleported " + str(choiceAback) + " Miles Back")
                             elif choiceA == 3:
                                 choiceAforward = random.randint(0, 15)
                                 milestraveled += choiceAforward
-                                print("You Were Teleported " + choiceAforward + " Miles Forward")
+                                print("You Were Teleported " + str(choiceAforward) + " Miles Forward")
                         elif userchoice == "B":
                             choiceB = random.randint(0, 3)
                             if choiceB == 1 or 2:
@@ -197,11 +199,11 @@ while done == bool(False):# Main game loop, handles whether game is over or not
                 if nativechance == 1:
                     nativegain = random.randint(0, 5)
                     nativetraveled += nativegain
-                    print("\033[1;31;49mBut The Natives Got " + nativegain + "Closer")
+                    print("\033[1;31;49mBut The Natives Got " + str(nativegain) + " Miles Closer")
             milestraveled += random.randint(10,21) - choiceBnegativeeffect
             print("You have traveled " + str(milestraveled) + " Miles")
             thirst += 1
-            cameltiredness += random.randint(1,4) - choiceBpositiveeffect
+            cameltiredness += random.randint(0,4) - choiceBpositiveeffect
             nativetraveled += random.randint(7,15)
         elif userchoice == "D":# Stop for the night
             cameltiredness = 0
@@ -213,8 +215,22 @@ while done == bool(False):# Main game loop, handles whether game is over or not
             print("The Natives Are " + str(abs(nativedistance)) + " Miles Behind You")
             print("Camel Tiredness " + str(cameltiredness))
         else:
-            continue
-
+            break
+        if done is True:
+            userchoice = input("Would You Like To Play Again?").upper()
+            if userchoice == "Y" or "YES":
+                choiceBpositiveeffect = 0
+                choiceBnegativeeffect = 0
+                milestraveled = 0
+                thirst = 0
+                cameltiredness = 0
+                nativetraveled = -20
+                canteen = 4
+                mysterycloak = False
+                done = False
+                continue
+            else:
+                break
 
 
 
