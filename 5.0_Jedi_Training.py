@@ -133,13 +133,13 @@ When the user quits, print an end game message and their win/loss/tie record
 wins = 0
 losses = 0
 draws = 0
-playing = 1
+playing = True
 print("\033[1;38;49m Enter 4 at any draw to quit the program")
-while playing == 1:
+while playing == True:
     draw = random.randint(1, 3)
     playerdraw = int(input("\033[1;38;49m Pick your draw!\nRock = 1\nPaper = 2\nScissors = 3\n"))
     if playerdraw == 4:
-        playing -= 1
+        playing = False
     elif playerdraw == (draw - 2) or playerdraw == (draw + 1):
         wins += 1
         print("\033[1;32;49m You Win!")

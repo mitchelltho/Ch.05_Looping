@@ -22,7 +22,7 @@ if userchoice == "":
 
 while playing == True:
     while done == bool(False):# Main game loop, handles whether game is over or not
-        def mysterymerchant(milestraveled=None):
+        def mysterymerchant(milestraveled=None):# I ADDED FUNCTIONS!!!
             userchoice = input("You Come Across A Mysterious Traveling Merchant, His Face Cloaked In His Hood, \n"
                                "And His Camel Is As Dark As The Night. As You Approach Him He Asks If You \n"
                                "Would Like To See His Wares. Do You Accept? Yes Or No? ").upper()
@@ -72,7 +72,7 @@ while playing == True:
             else:
                 print("You Pass Him Up On His Offer And He Disappears In Front Of Your Eyes In A Puff Of Smoke")
 
-        def oasis(nativetraveled=None):
+        def oasis(nativetraveled=None):# MORE FUNCTIONS!
             canteen = 4
             thirst = 0
             cameltiredness = 0
