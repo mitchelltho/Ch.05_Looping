@@ -134,7 +134,7 @@ while done == bool(False):# Main game loop, handles whether game is over or not
                     nativetraveled += nativegain
                     print("\033[1;31;49mBut The Natives Got " + nativegain + " Miles Closer")
             milestraveled += random.randint(5,13) - choiceBnegativeeffect
-            print("You have traveled " + str(milestraveled) + " Miles")
+            print("\033[1;38;49mYou have traveled " + str(milestraveled) + " Miles")
             thirst += 1
             cameltiredness += 1
             nativetraveled += random.randint(7,15)
@@ -201,7 +201,7 @@ while done == bool(False):# Main game loop, handles whether game is over or not
                     nativetraveled += nativegain
                     print("\033[1;31;49mBut The Natives Got " + str(nativegain) + " Miles Closer")
             milestraveled += random.randint(10,21) - choiceBnegativeeffect
-            print("You have traveled " + str(milestraveled) + " Miles")
+            print("\033[1;38;49mYou have traveled " + str(milestraveled) + " Miles")
             thirst += 1
             cameltiredness += random.randint(0,4) - choiceBpositiveeffect
             nativetraveled += random.randint(7,15)
