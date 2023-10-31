@@ -70,9 +70,14 @@ while playing == True:
             elif userchoice == "A":# Drink from your canteen
                 if canteen > 0:
                     canteen -= 1
-                    thirst = 0
+                    canteenchance = random.randint(0,6)
+                    if canteenchance == 1:
+                        thirst = 1
+                    else:
+                        thirst = 0
                 else:
                     print("You have no water")
+                    break
             elif userchoice == "B":# Ahead moderate speed
                 oasischance = random.randint(0,17)
                 travelingmerchantchance = random.randint(0,50)
