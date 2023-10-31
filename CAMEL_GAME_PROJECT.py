@@ -4,6 +4,10 @@ CAMEL GAME
 The pseudo-code for how to code this game is in Chapter 5 of the Python Jedi book
 
 '''
+
+
+
+
 import random
 choiceBpositiveeffect = 0
 choiceBnegativeeffect = 0
@@ -21,6 +25,56 @@ if userchoice == "":
 
 while playing == True:
     while done == bool(False):# Main game loop, handles whether game is over or not
+        def mysterymerchant(milestraveled=None):
+            userchoice = input("You Come Across A Mysterious Traveling Merchant, His Face Cloaked In His Hood, \n"
+                               "And His Camel Is As Dark As The Night. As You Approach Him He Asks If You \n"
+                               "Would Like To See His Wares. Do You Accept? Yes Or No? ").upper()
+            if userchoice == "YES" or "Y" or "YE" or "YUP" or "YEP" or "SURE":
+                mysterymerchantkindness = random.randint(0, 5)
+                if mysterymerchantkindness == 1:
+                    print("The Mystery Merchant Watches You Closely As You Approach, And As You Come Close \n"
+                          "He Acts Swiftly And Stabs You In The Back Before You Can Tell What's Happening And \n"
+                          "You Die.")
+                    done = True
+
+                else:
+                    print("The Mystery Merchant Watches You As You Approach, And As You Come Close \n"
+                          "He Pulls A Lever, Revealing A Store Of Useful Items")
+                    print("A. Teleport To Either An Oasis Or Inbetween -10 And +15 Miles")
+                    print("B. An Enchantment For Your Camel, Making It Lose Less Energy  \n"
+                          "Or Making It Slightly Slower")
+                    print("C. A Mysterious Cloak With Unknown Properties")
+                    print("Q. Leave")
+                    userchoice = input("What Do You Choose? ").upper()
+                    if userchoice == "A":
+                        choiceA = random.randint(0, 3)
+                        if choiceA == 1:
+                            canteen = 4
+                            thirst = 0
+                            cameltiredness = 0
+                            print("\033[1;34;49mYou Teleport To An Oasis And Your Resources Are Replenished")
+                        elif choiceA == 2:
+                            choiceAback = random.randint(-11, -1)
+                            milestraveled += choiceAback
+                            print("You Were Teleported " + str(choiceAback) + " Miles Back")
+                        elif choiceA == 3:
+                            choiceAforward = random.randint(0, 15)
+                            milestraveled += choiceAforward
+                            print("You Were Teleported " + str(choiceAforward) + " Miles Forward")
+                    elif userchoice == "B":
+                        choiceB = random.randint(0, 3)
+                        if choiceB == 1 or 2:
+                            choiceBpositiveeffect = 1
+                            print("Your Camel Becomes Stronger")
+                        if choiceB == 3:
+                            choiceBnegativeeffect = random.randint(0, 3)
+                            print("Your Camel Is Sluggish")
+                    elif userchoice == "C":
+                        mysterycloak = bool(True)
+                        print("You Take The Cloak And Leave")
+            else:
+                print("You Pass Him Up On His Offer And He Disappears In Front Of Your Eyes In A Puff Of Smoke")
+
 
         nativedistance = nativetraveled - milestraveled
         if milestraveled >= 300:
@@ -149,54 +203,8 @@ while playing == True:
                 oasischance = random.randint(0, 14)
                 travelingmerchantchance = random.randint(0, 50)
                 if travelingmerchantchance == 1:
-                    userchoice = input("You Come Across A Mysterious Traveling Merchant, His Face Cloaked In His Hood, \n"
-                                       "And His Camel Is As Dark As The Night. As You Approach Him He Asks If You \n"
-                                       "Would Like To See His Wares. Do You Accept? Yes Or No? ").upper()
-                    if userchoice == "YES" or "Y" or "YE" or "YUP" or "YEP" or "SURE":
-                        mysterymerchantkindness = random.randint(0, 5)
-                        if mysterymerchantkindness == 1:
-                            print("The Mystery Merchant Watches You Closely As You Approach, And As You Come Close \n"
-                                  "He Acts Swiftly And Stabs You In The Back Before You Can Tell What's Happening And \n"
-                                  "You Die.")
-                            done = True
-                            break
-                        else:
-                            print("The Mystery Merchant Watches You As You Approach, And As You Come Close \n"
-                                  "He Pulls A Lever, Revealing A Store Of Useful Items")
-                            print("A. Teleport To Either An Oasis Or Inbetween -10 And +15 Miles")
-                            print("B. An Enchantment For Your Camel, Making It Lose Less Energy  \n"
-                                  "Or Making It Slightly Slower")
-                            print("C. A Mysterious Cloak With Unknown Properties")
-                            print("Q. Leave")
-                            userchoice = input("What Do You Choose? ").upper()
-                            if userchoice == "A":
-                                choiceA = random.randint(0, 3)
-                                if choiceA == 1:
-                                    canteen = 4
-                                    thirst = 0
-                                    cameltiredness = 0
-                                    print("\033[1;34;49mYou Teleport To An Oasis And Your Resources Are Replenished")
-                                elif choiceA == 2:
-                                    choiceAback = random.randint(-11, -1)
-                                    milestraveled += choiceAback
-                                    print("You Were Teleported " + str(choiceAback) + " Miles Back")
-                                elif choiceA == 3:
-                                    choiceAforward = random.randint(0, 15)
-                                    milestraveled += choiceAforward
-                                    print("You Were Teleported " + str(choiceAforward) + " Miles Forward")
-                            elif userchoice == "B":
-                                choiceB = random.randint(0, 3)
-                                if choiceB == 1 or 2:
-                                    choiceBpositiveeffect = 1
-                                    print("Your Camel Becomes Stronger")
-                                if choiceB == 3:
-                                    choiceBnegativeeffect = random.randint(0, 3)
-                                    print("Your Camel Is Sluggish")
-                            elif userchoice == "C":
-                                mysterycloak = bool(True)
-                                print("You Take The Cloak And Leave")
-                    else:
-                        print("You Pass Him Up On His Offer And He Disappears In Front Of Your Eyes In A Puff Of Smoke")
+                    mysterymerchant()
+                    break
                 if oasischance == 1 and travelingmerchantchance > 1:
                     canteen = 4
                     thirst = 0
@@ -239,11 +247,4 @@ while playing == True:
         else:
             playing = False
             break
-
-
-
-
-
-
-
 
